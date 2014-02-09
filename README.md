@@ -7,6 +7,24 @@ Project "commons-vfs2-cifs" is a SMB/CIFS provider for Commons VFS.
 Official Commons VFS site is here: http://commons.apache.org/proper/commons-vfs/
 
 
+Example
+=======
+
+```java
+// Retrieve file system manager
+final FileSystemManager fileManager = VFS.getManager();
+
+// Configure authenticator
+final StaticUserAuthenticator userAuthenticator = new StaticUserAuthenticator(domain, login, password);
+final FileSystemOptions fileSystemOptions = new FileSystemOptions();
+DefaultFileSystemConfigBuilder.getInstance().setUserAuthenticator(fileSystemOptions, userAuthenticator);
+
+// Resolve file object file from virtual file system
+final String uri = "smb://fs/Documents";
+final FileObject fileObject = fileManager.resolveFile(uri, fileSystemOptions);
+```
+
+
 License
 =======
 
