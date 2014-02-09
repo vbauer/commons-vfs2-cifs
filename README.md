@@ -15,9 +15,12 @@ Example
 final FileSystemManager fileManager = VFS.getManager();
 
 // Configure authenticator
-final StaticUserAuthenticator userAuthenticator = new StaticUserAuthenticator(domain, login, password);
 final FileSystemOptions fileSystemOptions = new FileSystemOptions();
-DefaultFileSystemConfigBuilder.getInstance().setUserAuthenticator(fileSystemOptions, userAuthenticator);
+final StaticUserAuthenticator userAuthenticator =
+    new StaticUserAuthenticator(domain, login, password);
+
+DefaultFileSystemConfigBuilder.getInstance()
+    .setUserAuthenticator(fileSystemOptions, userAuthenticator);
 
 // Resolve file object file from virtual file system
 final String uri = "smb://fs/Documents";
