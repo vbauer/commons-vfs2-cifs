@@ -29,6 +29,7 @@
 
         <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
         <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
+        <maven.checkstyle.plugin.version>2.11</maven.checkstyle.plugin.version>
     </properties>
 
 
@@ -58,6 +59,7 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
                     <optimize>true</optimize>
                 </configuration>
             </plugin>
@@ -79,5 +81,34 @@
 
         </plugins>
     </build>
+
+    <profiles>
+
+        <profile>
+            <id>checkstyle</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-checkstyle-plugin</artifactId>
+                        <version>${maven.checkstyle.plugin.version}</version>
+                        <configuration>
+                            <consoleOutput>true</consoleOutput>
+                            <configLocation>src/test/resources/checkstyle.xml</configLocation>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
 
 </project>

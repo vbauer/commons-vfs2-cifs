@@ -11,18 +11,24 @@ import org.apache.commons.vfs2.provider.VfsComponentContext;
 /**
  * Implementation for sftp. set default port to 139
  */
+
 public class SmbFileNameParser extends URLFileNameParser {
-    private final static SmbFileNameParser INSTANCE = new SmbFileNameParser();
+
+    private static final SmbFileNameParser INSTANCE = new SmbFileNameParser();
+
 
     public SmbFileNameParser() {
         super(139);
     }
 
+
     public static FileNameParser getInstance() {
         return INSTANCE;
     }
 
-    public FileName parseUri(final VfsComponentContext context, FileName base, final String filename) throws FileSystemException {
+    public FileName parseUri(
+        final VfsComponentContext context, final FileName base, final String filename
+    ) throws FileSystemException {
         final StringBuilder name = new StringBuilder();
 
         // Extract the scheme and authority parts
@@ -30,7 +36,7 @@ public class SmbFileNameParser extends URLFileNameParser {
 
         // extract domain
         String username = auth.getUserName();
-        String domain = extractDomain(username);
+        final String domain = extractDomain(username);
         if (domain != null) {
             username = username.substring(domain.length() + 1);
         }
@@ -47,7 +53,7 @@ public class SmbFileNameParser extends URLFileNameParser {
 
         // Normalise the path.  Do this after extracting the share name,
         // to deal with things like smb://hostname/share/..
-        FileType fileType = UriParser.normalisePath(name);
+        final FileType fileType = UriParser.normalisePath(name);
         final String path = name.toString();
 
         return new SmbFileName(
@@ -62,7 +68,7 @@ public class SmbFileNameParser extends URLFileNameParser {
             fileType);
     }
 
-    private String extractDomain(String username) {
+    private String extractDomain(final String username) {
         if (username == null) {
             return null;
         }
