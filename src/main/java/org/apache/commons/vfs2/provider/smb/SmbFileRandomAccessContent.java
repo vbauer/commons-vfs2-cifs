@@ -53,43 +53,7 @@ import java.net.UnknownHostException;
 
         try {
             raf = new SmbRandomAccessFile(smbFile, modes.toString());
-            rafis = new InputStream() {
-
-                @Override
-                public int read() throws IOException {
-                    return raf.readByte();
-                }
-
-                @Override
-                public long skip(final long n) throws IOException {
-                    raf.seek(raf.getFilePointer() + n);
-                    return n;
-                }
-
-                @Override
-                public void close() throws IOException {
-                    raf.close();
-                }
-
-                @Override
-                public int read(final byte b[]) throws IOException {
-                    return raf.read(b);
-                }
-
-                @Override
-                public int read(final byte b[], final int off, final int len) throws IOException {
-                    return raf.read(b, off, len);
-                }
-
-                @Override
-				public int available() throws IOException {
-                    final long available = raf.length() - raf.getFilePointer();
-					if (available > Integer.MAX_VALUE) {
-						return Integer.MAX_VALUE;
-					}
-					return (int) available;
-				}
-            };
+            rafis = new SmbFileInputStream();
         } catch (MalformedURLException e) {
             throw new FileSystemException("vfs.provider/random-access-open-failed.error", smbFile, e);
         } catch (SmbException e) {
@@ -175,12 +139,12 @@ import java.net.UnknownHostException;
     }
 
     @Override
-    public void readFully(final byte b[]) throws IOException {
+    public void readFully(final byte[] b) throws IOException {
         raf.readFully(b);
     }
 
     @Override
-    public void readFully(final byte b[], final int off, final int len) throws IOException {
+    public void readFully(final byte[] b, final int off, final int len) throws IOException {
         raf.readFully(b, off, len);
     }
 
@@ -235,12 +199,12 @@ import java.net.UnknownHostException;
     }
 
     @Override
-    public void write(final byte b[]) throws IOException {
+    public void write(final byte[] b) throws IOException {
         raf.write(b);
     }
 
     @Override
-    public void write(final byte b[], final int off, final int len) throws IOException {
+    public void write(final byte[] b, final int off, final int len) throws IOException {
         raf.write(b, off, len);
     }
 
@@ -262,6 +226,49 @@ import java.net.UnknownHostException;
     @Override
     public InputStream getInputStream() throws IOException {
         return rafis;
+    }
+
+
+    /**
+     * @author Vladislav Bauer
+     */
+
+    private class SmbFileInputStream extends InputStream {
+
+        @Override
+        public int read() throws IOException {
+            return raf.readByte();
+        }
+
+        @Override
+        public long skip(final long n) throws IOException {
+            raf.seek(raf.getFilePointer() + n);
+            return n;
+        }
+
+        @Override
+        public void close() throws IOException {
+            raf.close();
+        }
+
+        @Override
+        public int read(final byte[] b) throws IOException {
+            return raf.read(b);
+        }
+
+        @Override
+        public int read(final byte[] b, final int off, final int len) throws IOException {
+            return raf.read(b, off, len);
+        }
+
+        @Override
+        public int available() throws IOException {
+            final long available = raf.length() - raf.getFilePointer();
+            if (available > Integer.MAX_VALUE) {
+                return Integer.MAX_VALUE;
+            }
+            return (int) available;
+        }
     }
 
 }

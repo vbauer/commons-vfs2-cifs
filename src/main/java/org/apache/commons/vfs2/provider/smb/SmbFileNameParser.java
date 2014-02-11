@@ -14,11 +14,13 @@ import org.apache.commons.vfs2.provider.VfsComponentContext;
 
 public class SmbFileNameParser extends URLFileNameParser {
 
+    public static final int DEFAULT_PORT = 139;
+
     private static final SmbFileNameParser INSTANCE = new SmbFileNameParser();
 
 
     public SmbFileNameParser() {
-        super(139);
+        super(DEFAULT_PORT);
     }
 
 

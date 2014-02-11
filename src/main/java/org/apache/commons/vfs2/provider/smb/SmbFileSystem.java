@@ -45,7 +45,7 @@ public class SmbFileSystem extends AbstractFileSystem implements FileSystem {
      * Returns the capabilities of this file system.
      */
     protected void addCapabilities(final Collection<Capability> capabilities) {
-        capabilities.addAll(SmbFileProvider.capabilities);
+        capabilities.addAll(SmbFileProvider.CAPABILITIES);
     }
 
 }

@@ -17,15 +17,11 @@ public class SmbFileName extends GenericFileName {
 
     protected SmbFileName(
         final String scheme,
-        final String hostName,
-        final int port,
-        final String userName,
-        final String password,
-        final String domain,
-        final String share,
-        final String path,
-        final FileType type)
-    {
+        final String hostName, final int port,
+        final String userName, final String password,
+        final String domain, final String share, final String path,
+        final FileType type
+    ) {
         super(scheme, hostName, port, DEFAULT_PORT, userName, password, path, type);
         this.share = share;
         this.domain = domain;
@@ -54,9 +50,11 @@ public class SmbFileName extends GenericFileName {
      */
     @Override
     protected void appendCredentials(final StringBuilder buffer, final boolean addPassword) {
-        if (getDomain() != null && getDomain().length() != 0 &&
-            getUserName() != null && getUserName().length() != 0) {
-            buffer.append(getDomain());
+        final String domain = getDomain();
+        final String userName = getUserName();
+
+        if (domain != null && domain.length() != 0 && userName != null && userName.length() != 0) {
+            buffer.append(domain);
             buffer.append("\\");
         }
         super.appendCredentials(buffer, addPassword);
@@ -75,7 +73,8 @@ public class SmbFileName extends GenericFileName {
             domain,
             share,
             path,
-            type);
+            type
+        );
     }
 
     /**

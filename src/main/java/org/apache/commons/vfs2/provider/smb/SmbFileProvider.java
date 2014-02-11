@@ -31,9 +31,16 @@ import java.util.Collections;
 /**
  * A provider for SMB (Samba, Windows share) file systems.
  */
+
 public class SmbFileProvider extends AbstractOriginatingFileProvider {
 
-    protected final static Collection<Capability> capabilities = Collections.unmodifiableCollection(Arrays.asList(
+    public static final UserAuthenticationData.Type[] AUTHENTICATOR_TYPES = new UserAuthenticationData.Type[] {
+        UserAuthenticationData.USERNAME,
+        UserAuthenticationData.PASSWORD,
+        UserAuthenticationData.DOMAIN,
+    };
+
+    protected static final Collection<Capability> CAPABILITIES = Collections.unmodifiableCollection(Arrays.asList(
         Capability.CREATE,
         Capability.DELETE,
         Capability.RENAME,
@@ -49,11 +56,7 @@ public class SmbFileProvider extends AbstractOriginatingFileProvider {
     ));
 
 
-	public final static UserAuthenticationData.Type[] AUTHENTICATOR_TYPES = new UserAuthenticationData.Type[] {
-        UserAuthenticationData.USERNAME, UserAuthenticationData.PASSWORD, UserAuthenticationData.DOMAIN
-    };
-
-	public SmbFileProvider() {
+    public SmbFileProvider() {
         setFileNameParser(SmbFileNameParser.getInstance());
     }
 
@@ -61,13 +64,15 @@ public class SmbFileProvider extends AbstractOriginatingFileProvider {
      * Creates the filesystem.
      */
     @Override
-    protected FileSystem doCreateFileSystem(final FileName name, final FileSystemOptions fileSystemOptions) throws FileSystemException {
+    protected FileSystem doCreateFileSystem(
+        final FileName name, final FileSystemOptions fileSystemOptions
+    ) throws FileSystemException {
         return new SmbFileSystem(name, fileSystemOptions);
     }
 
     @Override
     public Collection<Capability> getCapabilities() {
-        return capabilities;
+        return CAPABILITIES;
     }
 
 }
