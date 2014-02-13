@@ -34,13 +34,13 @@ import java.util.Collections;
 
 public class SmbFileProvider extends AbstractOriginatingFileProvider {
 
-    public static final UserAuthenticationData.Type[] AUTHENTICATOR_TYPES = new UserAuthenticationData.Type[] {
+    /*package*/ static final UserAuthenticationData.Type[] AUTHENTICATOR_TYPES = new UserAuthenticationData.Type[] {
         UserAuthenticationData.USERNAME,
         UserAuthenticationData.PASSWORD,
         UserAuthenticationData.DOMAIN,
     };
 
-    protected static final Collection<Capability> CAPABILITIES = Collections.unmodifiableCollection(Arrays.asList(
+    /*package*/ static final Collection<Capability> CAPABILITIES = Collections.unmodifiableCollection(Arrays.asList(
         Capability.CREATE,
         Capability.DELETE,
         Capability.RENAME,
