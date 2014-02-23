@@ -23,6 +23,8 @@ import java.net.MalformedURLException;
 
 /**
  * A file in an SMB file system.
+ *
+ * @author Vladislav Bauer
  */
 
 public class SmbFileObject extends AbstractFileObject implements FileObject {

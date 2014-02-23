@@ -7,13 +7,19 @@ import org.apache.commons.vfs2.provider.GenericFileName;
 
 /**
  * An SMB URI.  Adds a share name to the generic URI.
+ *
+ * @author Vladislav Bauer
  */
+
 public class SmbFileName extends GenericFileName {
-    private static final int DEFAULT_PORT = 139;
+
+    public static final int DEFAULT_PORT = 139;
+
 
     private final String share;
     private final String domain;
     private String uriWithoutAuth;
+
 
     protected SmbFileName(
         final String scheme,
