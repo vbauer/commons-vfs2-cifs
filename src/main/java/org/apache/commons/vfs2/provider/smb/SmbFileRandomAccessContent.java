@@ -18,24 +18,25 @@ import java.net.UnknownHostException;
  * @author Vladislav Bauer
  */
 
-/*package*/
-class SmbFileRandomAccessContent extends AbstractRandomAccessContent {
+public class SmbFileRandomAccessContent extends AbstractRandomAccessContent {
+
+    public static final char MODE_READ = 'r';
+    public static final char MODE_WRITE = 'w';
+
 
     private final SmbRandomAccessFile raf;
     private final InputStream rafis;
 
 
-    /*package*/ SmbFileRandomAccessContent(
-        final SmbFile smbFile, final RandomAccessMode mode
-    ) throws FileSystemException {
+    public SmbFileRandomAccessContent(final SmbFile smbFile, final RandomAccessMode mode) throws FileSystemException {
         super(mode);
 
         final StringBuilder modes = new StringBuilder(2);
         if (mode.requestRead()) {
-            modes.append('r');
+            modes.append(MODE_READ);
         }
         if (mode.requestWrite()) {
-            modes.append('w');
+            modes.append(MODE_WRITE);
         }
 
         try {
