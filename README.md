@@ -1,4 +1,3 @@
-
 Introduction
 ============
 
@@ -10,8 +9,9 @@ Official Commons VFS site is here: http://commons.apache.org/proper/commons-vfs/
 Requirements
 ============
 
-Project "commons-vfs2-cifs" requires Java 5 and jcifs library.
-JCIFS is an Open Source client library that implements the CIFS/SMB networking protocol: http://jcifs.samba.org
+Project "commons-vfs2-cifs" requires:
+* Java 5 (Apache Commons VFS 2.0 uses the same Java version)
+* JCIFS library (http://jcifs.samba.org)
 
 
 Example
