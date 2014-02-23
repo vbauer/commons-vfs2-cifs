@@ -51,94 +51,80 @@ public class SmbFileRandomAccessContent extends AbstractRandomAccessContent {
         }
     }
 
-    @Override
     public long getFilePointer() throws IOException {
         return raf.getFilePointer();
     }
 
-    @Override
     public void seek(final long pos) throws IOException {
         raf.seek(pos);
     }
 
-    @Override
     public long length() throws IOException {
         return raf.length();
     }
 
-    @Override
     public void close() throws IOException {
         raf.close();
     }
 
-    @Override
     public byte readByte() throws IOException {
         return raf.readByte();
     }
 
-    @Override
     public char readChar() throws IOException {
         return raf.readChar();
     }
 
-    @Override
     public double readDouble() throws IOException {
         return raf.readDouble();
     }
 
-    @Override
     public float readFloat() throws IOException {
         return raf.readFloat();
     }
 
-    @Override
     public int readInt() throws IOException {
         return raf.readInt();
     }
 
-    @Override
     public int readUnsignedByte() throws IOException {
         return raf.readUnsignedByte();
     }
 
-    @Override
     public int readUnsignedShort() throws IOException {
         return raf.readUnsignedShort();
     }
 
-    @Override
     public long readLong() throws IOException {
         return raf.readLong();
     }
 
-    @Override
     public short readShort() throws IOException {
         return raf.readShort();
     }
 
-    @Override
     public boolean readBoolean() throws IOException {
         return raf.readBoolean();
     }
 
-    @Override
     public int skipBytes(final int n) throws IOException {
         return raf.skipBytes(n);
     }
 
-    @Override
     public void readFully(final byte[] b) throws IOException {
         raf.readFully(b);
     }
 
-    @Override
     public void readFully(final byte[] b, final int off, final int len) throws IOException {
         raf.readFully(b, off, len);
     }
 
-    @Override
     public String readUTF() throws IOException {
         return raf.readUTF();
+    }
+
+    public InputStream getInputStream() throws IOException {
+        return rafis;
     }
 
     @Override
@@ -209,11 +195,6 @@ public class SmbFileRandomAccessContent extends AbstractRandomAccessContent {
     @Override
     public void writeUTF(final String str) throws IOException {
         raf.writeUTF(str);
-    }
-
-    @Override
-    public InputStream getInputStream() throws IOException {
-        return rafis;
     }
 
 }
