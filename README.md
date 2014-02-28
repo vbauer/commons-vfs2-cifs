@@ -35,6 +35,15 @@ final FileObject fileObject = fileManager.resolveFile(uri, fileSystemOptions);
 ```
 
 
+Known Issues
+============
+
+To date, JCIFS has always tried NetBIOS broadcast lookups in favor of DNS which frequently resulted in a 6 second
+delay  if the jcifs.resolveOrder property was not adjusted. This behavior has been changed to try  DNS before NetBIOS
+broadcast lookups which should result in much less frequent delays when using default settings. To restore the old
+behavior, simply set **jcifs.resolveOrder=LMHOSTS,BCAST,DNS**.
+
+
 License
 =======
 
