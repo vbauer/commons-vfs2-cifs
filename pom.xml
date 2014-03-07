@@ -9,6 +9,8 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
+    <description>SMB/CIFS provider for Commons VFS</description>
+    <url>https://github.com/vbauer/commons-vfs2-cifs</url>
     <inceptionYear>2012</inceptionYear>
 
     <developers>
