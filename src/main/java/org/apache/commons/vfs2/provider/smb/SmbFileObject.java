@@ -5,12 +5,7 @@ import jcifs.smb.SmbException;
 import jcifs.smb.SmbFile;
 import jcifs.smb.SmbFileInputStream;
 import jcifs.smb.SmbFileOutputStream;
-import org.apache.commons.vfs2.FileName;
-import org.apache.commons.vfs2.FileObject;
-import org.apache.commons.vfs2.FileSystemException;
-import org.apache.commons.vfs2.FileType;
-import org.apache.commons.vfs2.RandomAccessContent;
-import org.apache.commons.vfs2.UserAuthenticationData;
+import org.apache.commons.vfs2.*;
 import org.apache.commons.vfs2.provider.AbstractFileName;
 import org.apache.commons.vfs2.provider.AbstractFileObject;
 import org.apache.commons.vfs2.provider.UriParser;
@@ -20,6 +15,8 @@ import org.apache.commons.vfs2.util.UserAuthenticatorUtils;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
+
+import static org.apache.commons.vfs2.UserAuthenticationData.Type;
 
 /**
  * A file in an SMB file system.
@@ -51,48 +48,6 @@ public class SmbFileObject extends AbstractFileObject implements FileObject {
     protected void doDetach() throws Exception {
         // File closed through content-streams
         file = null;
-    }
-
-    private SmbFile createSmbFile(
-        final FileName fileName
-    ) throws MalformedURLException, SmbException, FileSystemException {
-        final SmbFileName smbFileName = (SmbFileName) fileName;
-        final String path = smbFileName.getUriWithoutAuth();
-
-        UserAuthenticationData authData = null;
-        SmbFile file;
-        NtlmPasswordAuthentication auth;
-        try {
-            authData = UserAuthenticatorUtils.authenticate(
-                getFileSystem().getFileSystemOptions(), SmbFileProvider.AUTHENTICATOR_TYPES);
-
-            auth = new NtlmPasswordAuthentication(
-                    UserAuthenticatorUtils.toString(
-                            UserAuthenticatorUtils.getData(
-                                    authData,
-                                    UserAuthenticationData.DOMAIN,
-                                    UserAuthenticatorUtils.toChar(smbFileName.getDomain()))),
-                    UserAuthenticatorUtils.toString(
-                            UserAuthenticatorUtils.getData(
-                                    authData,
-                                    UserAuthenticationData.USERNAME,
-                                    UserAuthenticatorUtils.toChar(smbFileName.getUserName()))),
-                    UserAuthenticatorUtils.toString(
-                            UserAuthenticatorUtils.getData(
-                                    authData,
-                                    UserAuthenticationData.PASSWORD,
-                                    UserAuthenticatorUtils.toChar(smbFileName.getPassword()))));
-
-            file = new SmbFile(path, auth);
-        } finally {
-            UserAuthenticatorUtils.cleanup(authData);
-        }
-
-        if (file.isDirectory() && !file.toString().endsWith("/")) {
-            file = new SmbFile(path + "/", auth);
-        }
-
-        return file;
     }
 
     /**
@@ -190,6 +145,48 @@ public class SmbFileObject extends AbstractFileObject implements FileObject {
     @Override
     protected RandomAccessContent doGetRandomAccessContent(final RandomAccessMode mode) throws Exception {
         return new SmbFileRandomAccessContent(file, mode);
+    }
+
+
+    private SmbFile createSmbFile(
+        final FileName fileName
+    ) throws MalformedURLException, SmbException, FileSystemException {
+        final SmbFileName smbFileName = (SmbFileName) fileName;
+        final String path = smbFileName.getUriWithoutAuth();
+
+        UserAuthenticationData authData = null;
+        SmbFile file;
+        NtlmPasswordAuthentication auth;
+        try {
+            final FileSystemOptions fileSystemOptions = getFileSystem().getFileSystemOptions();
+            authData = UserAuthenticatorUtils.authenticate(fileSystemOptions, SmbFileProvider.AUTHENTICATOR_TYPES);
+            auth = createNtlmPasswordAuthentication(smbFileName, authData);
+            file = new SmbFile(path, auth);
+        } finally {
+            UserAuthenticatorUtils.cleanup(authData);
+        }
+
+        if (file.isDirectory() && !file.toString().endsWith("/")) {
+            file = new SmbFile(path + "/", auth);
+        }
+
+        return file;
+    }
+
+    private NtlmPasswordAuthentication createNtlmPasswordAuthentication(
+        final SmbFileName smbFileName, final UserAuthenticationData authData
+    ) {
+        final String domain = getAuthValue(authData, UserAuthenticationData.USERNAME, smbFileName.getUserName());
+        final String username = getAuthValue(authData, UserAuthenticationData.DOMAIN, smbFileName.getDomain());
+        final String password = getAuthValue(authData, UserAuthenticationData.PASSWORD, smbFileName.getPassword());
+
+        return new NtlmPasswordAuthentication(domain, username, password);
+    }
+
+    private String getAuthValue(final UserAuthenticationData authData, final Type type, final String value) {
+        return UserAuthenticatorUtils.toString(
+            UserAuthenticatorUtils.getData(authData, type, UserAuthenticatorUtils.toChar(value))
+        );
     }
 
 }
