@@ -176,8 +176,8 @@ public class SmbFileObject extends AbstractFileObject implements FileObject {
     private NtlmPasswordAuthentication createNtlmPasswordAuthentication(
         final SmbFileName smbFileName, final UserAuthenticationData authData
     ) {
-        final String domain = getAuthValue(authData, UserAuthenticationData.USERNAME, smbFileName.getUserName());
-        final String username = getAuthValue(authData, UserAuthenticationData.DOMAIN, smbFileName.getDomain());
+        final String domain = getAuthValue(authData, UserAuthenticationData.DOMAIN, smbFileName.getDomain());
+        final String username = getAuthValue(authData, UserAuthenticationData.USERNAME, smbFileName.getUserName());
         final String password = getAuthValue(authData, UserAuthenticationData.PASSWORD, smbFileName.getPassword());
 
         return new NtlmPasswordAuthentication(domain, username, password);
