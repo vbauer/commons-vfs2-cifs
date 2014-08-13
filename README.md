@@ -1,9 +1,9 @@
 Introduction
 ============
 
-Project "commons-vfs2-cifs" is a SMB/CIFS provider for Commons VFS.
+[Commons VFS](http://commons.apache.org/proper/commons-vfs/) provides a single API for accessing various different file systems. It presents a uniform view of the files from various different sources.
 
-Official Commons VFS site is here: http://commons.apache.org/proper/commons-vfs/
+Project "commons-vfs2-cifs" is a SMB/CIFS provider for Commons VFS.
 
 
 Requirements
