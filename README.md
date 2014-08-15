@@ -1,5 +1,6 @@
 
-[![Build Status](https://travis-ci.org/vbauer/commons-vfs2-cifs.svg?branch=master)](https://travis-ci.org/vbauer/commons-vfs2-cifs)
+[![License](http://img.shields.io/badge/License-Apache%2C%20Version%202.0-blue.svg?style=flat)](http://opensource.org/licenses/Apache-2.0)
+[![Build Status](http://img.shields.io/travis/vbauer/commons-vfs2-cifs.svg?style=flat)](https://travis-ci.org/vbauer/commons-vfs2-cifs)
 
 Introduction
 ============
