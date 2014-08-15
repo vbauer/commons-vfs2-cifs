@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/vbauer/commons-vfs2-cifs.svg?branch=master)](https://travis-ci.org/vbauer/commons-vfs2-cifs)
+
 Introduction
 ============
 
@@ -11,7 +14,7 @@ Requirements
 
 Project "commons-vfs2-cifs" requires:
 * Java 5 (Apache Commons VFS 2.0 uses the same Java version)
-* JCIFS library (http://jcifs.samba.org)
+* [JCIFS library](http://jcifs.samba.org)
 
 
 Example
