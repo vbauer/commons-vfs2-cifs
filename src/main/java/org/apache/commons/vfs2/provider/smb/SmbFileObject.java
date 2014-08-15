@@ -140,7 +140,7 @@ public class SmbFileObject extends AbstractFileObject implements FileObject {
     }
 
     /**
-     * random access
+     * Random access.
      */
     @Override
     protected RandomAccessContent doGetRandomAccessContent(final RandomAccessMode mode) throws Exception {
