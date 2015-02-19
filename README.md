@@ -18,6 +18,37 @@ Project "commons-vfs2-cifs" requires:
 * [JCIFS library](http://jcifs.samba.org)
 
 
+Setup
+=====
+
+Maven:
+```xml
+<repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+</repository>
+
+<dependency>
+    <groupId>com.github.vbauer</groupId>
+    <artifactId>commons-vfs2-cifs</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+Gradle:
+```groovy
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
+dependencies {
+    compile 'com.github.vbauer:commons-vfs2-cifs:1.0.0'
+}
+```
+
+
 Example
 =======
 
