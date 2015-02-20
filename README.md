@@ -31,7 +31,7 @@ Maven:
 <dependency>
     <groupId>com.github.vbauer</groupId>
     <artifactId>commons-vfs2-cifs</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -44,7 +44,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.vbauer:commons-vfs2-cifs:1.0.0'
+    compile 'com.github.vbauer:commons-vfs2-cifs:1.0.1'
 }
 ```
 
