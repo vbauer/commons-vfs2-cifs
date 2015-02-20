@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.apache.commons</groupId>
+    <groupId>com.github.jitpack</groupId>
     <artifactId>commons-vfs2-cifs</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
