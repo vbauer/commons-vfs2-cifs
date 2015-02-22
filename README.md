@@ -78,6 +78,7 @@ behavior, simply set **jcifs.resolveOrder=LMHOSTS,BCAST,DNS**.
 ## Might also like
 
 * [houdini](https://github.com/vbauer/houdini) - Type conversion system for Spring framework.
+* [herald](https://github.com/vbauer/herald) - Logging annotation for Spring framework.
 * [avconv4java](https://github.com/vbauer/avconv4java) - Java interface to avconv tool.
 
 
