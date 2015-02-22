@@ -1,27 +1,23 @@
 
+# commons-vfs2-cifs
+
 [![Build Status](http://img.shields.io/travis/vbauer/commons-vfs2-cifs.svg?style=flat)](https://travis-ci.org/vbauer/commons-vfs2-cifs)
 [![License](http://img.shields.io/badge/License-Apache%2C%20Version%202.0-blue.svg?style=flat)](http://opensource.org/licenses/Apache-2.0)
 [![Maven](https://img.shields.io/github/tag/vbauer/commons-vfs2-cifs.svg?label=maven)](https://jitpack.io/#vbauer/commons-vfs2-cifs)
-
-
-Introduction
-============
 
 [Commons VFS](http://commons.apache.org/proper/commons-vfs/) provides a single API for accessing various different file systems. It presents a uniform view of the files from various different sources.
 
 Project "commons-vfs2-cifs" is a SMB/CIFS provider for Commons VFS.
 
 
-Requirements
-============
+## Requirements
 
 Project "commons-vfs2-cifs" requires:
 * Java 5 (Apache Commons VFS 2.0 uses the same Java version)
 * [JCIFS library](http://jcifs.samba.org)
 
 
-Setup
-=====
+## Setup
 
 Maven:
 ```xml
@@ -51,8 +47,7 @@ dependencies {
 ```
 
 
-Example
-=======
+## Example
 
 ```java
 // Retrieve file system manager
@@ -72,8 +67,7 @@ final FileObject fileObject = fileManager.resolveFile(uri, fileSystemOptions);
 ```
 
 
-Known Issues
-============
+## Known Issues
 
 To date, JCIFS has always tried NetBIOS broadcast lookups in favor of DNS which frequently resulted in a 6 second
 delay  if the jcifs.resolveOrder property was not adjusted. This behavior has been changed to try  DNS before NetBIOS
@@ -81,8 +75,13 @@ broadcast lookups which should result in much less frequent delays when using de
 behavior, simply set **jcifs.resolveOrder=LMHOSTS,BCAST,DNS**.
 
 
-License
-=======
+## Might also like
+
+* [houdini](https://github.com/vbauer/houdini) - Type conversion system for Spring framework.
+* [avconv4java](https://github.com/vbauer/avconv4java) - Java interface to avconv tool.
+
+
+## License
 
 ```
 Copyright 2014 Vladislav Bauer
