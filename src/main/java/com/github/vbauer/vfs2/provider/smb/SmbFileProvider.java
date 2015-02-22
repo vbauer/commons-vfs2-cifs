@@ -1,4 +1,4 @@
-package org.apache.commons.vfs2.provider.smb;
+package com.github.vbauer.vfs2.provider.smb;
 
 import org.apache.commons.vfs2.Capability;
 import org.apache.commons.vfs2.FileName;

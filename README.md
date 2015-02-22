@@ -1,6 +1,8 @@
 
-[![License](http://img.shields.io/badge/License-Apache%2C%20Version%202.0-blue.svg?style=flat)](http://opensource.org/licenses/Apache-2.0)
 [![Build Status](http://img.shields.io/travis/vbauer/commons-vfs2-cifs.svg?style=flat)](https://travis-ci.org/vbauer/commons-vfs2-cifs)
+[![License](http://img.shields.io/badge/License-Apache%2C%20Version%202.0-blue.svg?style=flat)](http://opensource.org/licenses/Apache-2.0)
+[![Maven](https://img.shields.io/github/tag/vbauer/commons-vfs2-cifs.svg?label=maven)](https://jitpack.io/#vbauer/commons-vfs2-cifs)
+
 
 Introduction
 ============
@@ -31,7 +33,7 @@ Maven:
 <dependency>
     <groupId>com.github.vbauer</groupId>
     <artifactId>commons-vfs2-cifs</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
@@ -44,7 +46,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.vbauer:commons-vfs2-cifs:1.0.1'
+    compile 'com.github.vbauer:commons-vfs2-cifs:1.0.2'
 }
 ```
 

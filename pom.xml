@@ -6,7 +6,7 @@
 
     <groupId>com.github.vbauer</groupId>
     <artifactId>commons-vfs2-cifs</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
 
     <description>SMB/CIFS provider for Commons VFS</description>

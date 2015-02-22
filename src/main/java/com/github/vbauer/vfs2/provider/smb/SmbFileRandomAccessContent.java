@@ -1,4 +1,4 @@
-package org.apache.commons.vfs2.provider.smb;
+package com.github.vbauer.vfs2.provider.smb;
 
 import jcifs.smb.SmbException;
 import jcifs.smb.SmbFile;
