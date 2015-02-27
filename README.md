@@ -79,6 +79,7 @@ behavior, simply set **jcifs.resolveOrder=LMHOSTS,BCAST,DNS**.
 
 * [houdini](https://github.com/vbauer/houdini) - Type conversion system for Spring framework.
 * [herald](https://github.com/vbauer/herald) - Logging annotation for Spring framework.
+* [caesar](https://github.com/vbauer/caesar) - Library that allows to create async beans from sync beans.
 * [avconv4java](https://github.com/vbauer/avconv4java) - Java interface to avconv tool.
 
 
