@@ -26,6 +26,11 @@
         <url>https://github.com/vbauer/commons-vfs2-cifs/issues</url>
     </issueManagement>
 
+    <ciManagement>
+        <system>Travis</system>
+        <url>https://travis-ci.org/vbauer/commons-vfs2-cifs</url>
+    </ciManagement>
+
     <developers>
         <developer>
             <id>vbauer</id>
