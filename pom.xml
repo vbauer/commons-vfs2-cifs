@@ -13,6 +13,19 @@
     <url>https://github.com/vbauer/commons-vfs2-cifs</url>
     <inceptionYear>2012</inceptionYear>
 
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/vbauer/commons-vfs2-cifs/issues</url>
+    </issueManagement>
+
     <developers>
         <developer>
             <id>vbauer</id>
