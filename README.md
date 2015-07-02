@@ -13,8 +13,8 @@ Project "commons-vfs2-cifs" is a SMB/CIFS provider for Commons VFS.
 ## Requirements
 
 Project "commons-vfs2-cifs" requires:
-* Java 5 (Apache Commons VFS 2.0 uses the same Java version)
 * [JCIFS library](http://jcifs.samba.org)
+* Java 6
 
 
 ## Setup
@@ -29,7 +29,7 @@ Maven:
 <dependency>
     <groupId>com.github.vbauer</groupId>
     <artifactId>commons-vfs2-cifs</artifactId>
-    <version>1.0.2</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.vbauer:commons-vfs2-cifs:1.0.2'
+    compile 'com.github.vbauer:commons-vfs2-cifs:1.1.0'
 }
 ```
 
