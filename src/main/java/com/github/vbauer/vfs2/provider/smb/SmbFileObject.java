@@ -29,7 +29,7 @@ public class SmbFileObject extends AbstractFileObject implements FileObject {
     private SmbFile file;
 
 
-    protected SmbFileObject(final AbstractFileName name, final SmbFileSystem fileSystem) throws FileSystemException {
+    protected SmbFileObject(final AbstractFileName name, final SmbFileSystem fileSystem) {
         super(name, fileSystem);
     }
 
