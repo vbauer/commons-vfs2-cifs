@@ -44,6 +44,9 @@ public class SmbFileObject extends AbstractFileObject implements FileObject {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void doDetach() throws Exception {
         // File closed through content-streams
@@ -92,6 +95,9 @@ public class SmbFileObject extends AbstractFileObject implements FileObject {
         file.delete();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void doRename(final FileObject newFile) throws Exception {
         file.renameTo(createSmbFile(newFile.getName()));

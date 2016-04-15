@@ -28,6 +28,11 @@ public class SmbFileNameParser extends URLFileNameParser {
         return INSTANCE;
     }
 
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public FileName parseUri(
         final VfsComponentContext context, final FileName base, final String filename
     ) throws FileSystemException {

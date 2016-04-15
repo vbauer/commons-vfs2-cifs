@@ -69,6 +69,7 @@ public class SmbFileName extends GenericFileName {
     /**
      * Factory method for creating name instances.
      */
+    @Override
     public FileName createName(final String path, final FileType type) {
         return new SmbFileName(
             getScheme(),

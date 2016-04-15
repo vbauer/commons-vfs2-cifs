@@ -56,6 +56,10 @@ public class SmbFileProvider extends AbstractOriginatingFileProvider {
         return new SmbFileSystem(name, fileSystemOptions);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public Collection<Capability> getCapabilities() {
         return CAPABILITIES;
     }

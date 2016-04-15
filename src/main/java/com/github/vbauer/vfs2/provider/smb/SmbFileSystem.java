@@ -22,6 +22,9 @@ public class SmbFileSystem extends AbstractFileSystem implements FileSystem {
         super(rootName, null, fileSystemOptions);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected FileObject createFile(final AbstractFileName name) throws Exception {
         return new SmbFileObject(name, this);
@@ -30,6 +33,7 @@ public class SmbFileSystem extends AbstractFileSystem implements FileSystem {
     /**
      * Returns the capabilities of this file system.
      */
+    @Override
     protected void addCapabilities(final Collection<Capability> capabilities) {
         capabilities.addAll(SmbFileProvider.CAPABILITIES);
     }
