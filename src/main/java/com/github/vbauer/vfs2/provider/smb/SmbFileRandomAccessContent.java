@@ -44,11 +44,7 @@ public class SmbFileRandomAccessContent extends AbstractRandomAccessContent {
         try {
             raf = new SmbRandomAccessFile(smbFile, modes.toString());
             rafis = new SmbFileInputStream(raf);
-        } catch (final MalformedURLException ex) {
-            throw new FileSystemException(ERROR_OPEN_FAILED, smbFile, ex);
-        } catch (final SmbException ex) {
-            throw new FileSystemException(ERROR_OPEN_FAILED, smbFile, ex);
-        } catch (final UnknownHostException ex) {
+        } catch (final MalformedURLException | SmbException | UnknownHostException ex) {
             throw new FileSystemException(ERROR_OPEN_FAILED, smbFile, ex);
         }
     }
