@@ -4,6 +4,7 @@
 [![Build Status](http://img.shields.io/travis/vbauer/commons-vfs2-cifs.svg?style=flat)](https://travis-ci.org/vbauer/commons-vfs2-cifs)
 [![License](http://img.shields.io/badge/License-Apache%2C%20Version%202.0-blue.svg?style=flat)](http://opensource.org/licenses/Apache-2.0)
 [![Maven](https://img.shields.io/github/tag/vbauer/commons-vfs2-cifs.svg?label=maven)](https://jitpack.io/#vbauer/commons-vfs2-cifs)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/f3f8cb0b44c84349b0f56e13cae6832f)](https://www.codacy.com/app/bauer-vlad/commons-vfs2-cifs)
 
 [Commons VFS](http://commons.apache.org/proper/commons-vfs/) provides a single API for accessing various different file systems. It presents a uniform view of the files from various different sources.
 
