@@ -15,7 +15,7 @@ Project "commons-vfs2-cifs" is a SMB/CIFS provider for Commons VFS.
 
 Project "commons-vfs2-cifs" requires:
 * [JCIFS library](http://jcifs.samba.org)
-* Java 6
+* Java 7
 
 
 ## Setup
