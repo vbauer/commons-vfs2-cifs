@@ -15,10 +15,23 @@ Project "commons-vfs2-cifs" is a SMB/CIFS provider for Commons VFS.
 
 Project "commons-vfs2-cifs" requires:
 * [JCIFS library](http://jcifs.samba.org)
-* Java 7
+* Java 8
 
 
 ## Setup
+
+Gradle:
+```groovy
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
+dependencies {
+    compile 'com.github.vbauer:commons-vfs2-cifs:1.2.0'
+}
+```
 
 Maven:
 ```xml
@@ -32,19 +45,6 @@ Maven:
     <artifactId>commons-vfs2-cifs</artifactId>
     <version>1.2.0</version>
 </dependency>
-```
-
-Gradle:
-```groovy
-repositories {
-    maven {
-        url "https://jitpack.io"
-    }
-}
-
-dependencies {
-    compile 'com.github.vbauer:commons-vfs2-cifs:1.2.0'
-}
 ```
 
 
